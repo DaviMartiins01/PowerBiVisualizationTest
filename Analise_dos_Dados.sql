@@ -4,7 +4,7 @@ SELECT  hotel as "Hotel",
         FROM hotel_revenue
 GROUP BY hotel;
 
-#Qual mês (no segundo semestre de 2018) cada hotel teve mais reservas efetivadas (O guest apareceu no hotel e saiu do hotel)?
+#Qual mês (no segundo semestre de 2018) cada hotel teve mais reservas efetivadas (O hóspede apareceu no hotel e saiu do hotel)?
 SELECT  hotel as "Hotel", 
         arrival_date_month as "Mês", 
         COUNT(reservation_status) as "Total de Reservas Efetivadas"
@@ -19,12 +19,15 @@ WHEN arrival_date_month = "November" then 5
 WHEN arrival_date_month = "December" then 6
 ELSE NULL END;
 
-#Nacionalidade que mais visita cada Hotel.
-SELECT hotel, country,  COUNT(country) as "Visitantes no Segundo Semestre de 2018" FROM hotel_revenue
+#Irei conseguir a porcentagem de Hóspedeis de cada nacionalidade
+#Dividindo (Hóspedeis em cada país) por (Total de Hóspedeis)
+#Irei fazer esta conta pelo PowerBI 
+SELECT hotel, country,  COUNT(country) as "Hóspedeis em cada país." FROM hotel_revenue
 WHERE country IS NOT NULL
-GROUP BY hotel, country
-Order by COUNT(country) DESC
-LIMIT 2;
+GROUP BY hotel, country;
+
+SELECT hotel,  COUNT(*) as "Total de Hóspedeis" FROM hotel_revenue
+Group by hotel;
 
 #Qual o hotel tem mais taxa de retorno no segundo semestre de 2018
 SELECT hotel, COUNT(is_repeated_guest) FROM hotel_revenue
