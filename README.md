@@ -1,3 +1,3 @@
 # Power BI Visualization.
 
-Primeiro projeto utilizando Power BI para visualizar dados de um hotel fictício.
+Primeiro projeto utilizando Power BI e o MYSQL Workbench para visualizar dados de um hotel fictício.
